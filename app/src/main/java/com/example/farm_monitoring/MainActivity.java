@@ -5,52 +5,42 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
-    DrawerLayout drawerLayout;
+    ViewPager2 viewPager2;
+    TabLayout tabLayout;
+    PagerAdapter pagerAdapter;
+
+    private String[] titles = new String[]{"모니터링", "커뮤니티"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        drawerLayout = findViewById(R.id.drawerLayout);
+        Fragment monitoring = new MonitoringFragment().newInstance("1","1-1");
+        Fragment community = new CommunityFragment().newInstance("2","2-1");
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        viewPager2 = findViewById(R.id.viewPager);
+        tabLayout = findViewById(R.id.tabs);
 
-//        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
+        pagerAdapter = new PagerAdapter(this);
+        pagerAdapter.addFrag(monitoring);
+        pagerAdapter.addFrag(community);
+
+        viewPager2.setAdapter(pagerAdapter);
+
+        new TabLayoutMediator(tabLayout,viewPager2,(tab, position) -> tab.setText(titles[position])).attach();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START); //네비게이션 드로어 열기
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawers();
-        }else{
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) { //네비게이션 드로어 메뉴 클릭 리스너
-        return false;
-    }
 }
