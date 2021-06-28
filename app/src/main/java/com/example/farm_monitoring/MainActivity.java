@@ -11,36 +11,44 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity extends AppCompatActivity {
 
-    ViewPager2 viewPager2;
-    TabLayout tabLayout;
-    PagerAdapter pagerAdapter;
-
-    private String[] titles = new String[]{"모니터링", "커뮤니티"};
+    Fragment home, plant, mypage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Fragment monitoring = new MonitoringFragment().newInstance("1","1-1");
-        Fragment community = new CommunityFragment().newInstance("2","2-1");
+        home = new HomeFragment().newInstance("home","home");
+        plant = new PlantStateFragment().newInstance("plant","plant");
+        mypage = new MypageFragment().newInstance("mypage", "mypage");
+        getSupportFragmentManager().beginTransaction().add(R.id.fram_fragment, home).commit();
 
-        viewPager2 = findViewById(R.id.viewPager);
-        tabLayout = findViewById(R.id.tabs);
-
-        pagerAdapter = new PagerAdapter(this);
-        pagerAdapter.addFrag(monitoring);
-        pagerAdapter.addFrag(community);
-
-        viewPager2.setAdapter(pagerAdapter);
-
-        new TabLayoutMediator(tabLayout,viewPager2,(tab, position) -> tab.setText(titles[position])).attach();
+        //하단 메뉴
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_menu);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fram_fragment, home).commit();
+                        return true;
+                    case R.id.plant:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fram_fragment, plant).commit();
+                        return true;
+                    case R.id.my:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fram_fragment, mypage).commit();
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 
 }
