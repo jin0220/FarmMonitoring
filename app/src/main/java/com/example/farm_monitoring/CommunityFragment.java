@@ -3,6 +3,7 @@ package com.example.farm_monitoring;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,7 +54,12 @@ public class CommunityFragment extends Fragment {
         CommunityAdapter adapter = new CommunityAdapter();
         recyclerView.setAdapter(adapter);
 
-        adapter.addData("상추 모종을 어디서 구입하는게 좋을 까요?","상추를 키우고 싶은데 모종...");
+        for(int i=0;i<10;i++) {
+            adapter.addData("상추 모종을 어디서 구입하는게 좋을 까요?", "상추를 키우고 싶은데 모종...");
+        }
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), new LinearLayoutManager(getContext()).getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
 
         return view;
     }
