@@ -71,66 +71,78 @@ public class MonitoringFragment extends Fragment {
         XAxis xAxis = lineChart1.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setLabelCount(8,true);
-        xAxis.setTextSize(11f);
+//        xAxis.setTextSize(11f);
         xAxis.setTextColor(Color.BLACK);
         xAxis.setDrawGridLines(false);
-        xAxis.setDrawAxisLine(false);
-        xAxis.setValueFormatter(new ValueFormatter() {
-            @Override
-            public String getFormattedValue(float value) {
-
-                SimpleDateFormat sdf = new SimpleDateFormat("H");
-                Log.d("확인",value +"");
-//                long emissionsMilliSince1970Time = ((long) value) * 1000;
+//        xAxis.setDrawAxisLine(false);
+//        xAxis.setValueFormatter(new ValueFormatter() {
+//            @Override
+//            public String getFormattedValue(float value) {
 //
-//                // Show time in local version
-//                Date timeMilliseconds = new Date(emissionsMilliSince1970Time);
-//                DateFormat dateTimeFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault());
-
-//                return dateTimeFormat.format(timeMilliseconds) + "시";
-                return sdf.format(value) + "시";
-            }
-        });
+//                SimpleDateFormat sdf = new SimpleDateFormat("H");
+//                Log.d("확인",value +"");
+////                long emissionsMilliSince1970Time = ((long) value) * 1000;
+////
+////                // Show time in local version
+////                Date timeMilliseconds = new Date(emissionsMilliSince1970Time);
+////                DateFormat dateTimeFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault());
+//
+////                return dateTimeFormat.format(timeMilliseconds) + "시";
+//                return sdf.format(value) + "시";
+//            }
+//        });
 
         YAxis leftAxis = lineChart1.getAxisLeft();
         leftAxis.setTextColor(Color.BLACK);
-        leftAxis.setLabelCount(10,true);
+//        leftAxis.setLabelCount(10,true);
         leftAxis.setAxisMaximum(100f);
         leftAxis.setAxisMinimum(0f);
         leftAxis.setDrawGridLines(true);
-        leftAxis.setGranularityEnabled(true);
+//        leftAxis.setGranularityEnabled(true);
 
         YAxis rightAxis = lineChart1.getAxisRight();
-        rightAxis.setDrawLabels(false);
-        rightAxis.setDrawAxisLine(false);
-        rightAxis.setDrawGridLines(false);
+        rightAxis.setEnabled(false); //비활성화
 
 
         List<Entry> entry_chart = new ArrayList<>();
 
         LineData charData = new LineData();
 
-        entry_chart.add(new Entry(0,5));
-        entry_chart.add(new Entry(3,6));
-        entry_chart.add(new Entry(6,7));
-        entry_chart.add(new Entry(9,3));
+        entry_chart.add(new Entry(0,50));
+        entry_chart.add(new Entry(1,60));
+        entry_chart.add(new Entry(2,40));
+        entry_chart.add(new Entry(3,70));
 
         LineDataSet lineDataSet = new LineDataSet(entry_chart, "차트1");
         lineDataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
         lineDataSet.setColor(Color.BLUE);
         lineDataSet.setCircleColor(Color.BLUE);
+        lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
         lineDataSet.setLineWidth(2f);
         lineDataSet.setCircleRadius(3f);
-        lineDataSet.setFillAlpha(65);
+//        lineDataSet.setFillAlpha(65);
 //        lineDataSet.setFillColor(Color.RED);
-        lineDataSet.setDrawCircleHole(false);
+//        lineDataSet.setDrawCircleHole(false);
 //        lineDataSet.setHighLightColor(Color.rgb(244, 117, 117));
-        lineDataSet.setCircleRadius(6); // 곡률
+//        lineDataSet.setCircleRadius(6); // 곡률
+        lineChart1.animateY(1000);
 
 
 
         charData.addDataSet(lineDataSet);
 
+        List<String> lables = new ArrayList<>();
+        lables.add("9시");
+        lables.add("12시");
+        lables.add("15시");
+        lables.add("18시");
+        lables.add("11시");
+        lables.add("13시");
+        lables.add("14시");
+        lables.add("16시");
+
+        lineChart1.getXAxis().setValueFormatter(new IndexAxisValueFormatter(lables));
+//        lineChart1.getXAxis().setValueFormatter(new IndexAxisValueFormatter(getAreaCount()));
         lineChart1.setDescription(null);
 
         lineChart1.setData(charData);
@@ -140,5 +152,12 @@ public class MonitoringFragment extends Fragment {
 
         return view;
     }
+
+//    public ArrayList<String> getAreaCount() {
+//        ArrayList<String> label= new ArrayList<>();
+//        for (int i= 0; i < areaList.size(); i++)
+//            label.add(areaList.get(i).getTopicName());
+//        return label;
+//    }
 
 }
