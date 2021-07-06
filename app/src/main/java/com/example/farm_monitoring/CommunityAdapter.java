@@ -1,6 +1,7 @@
 package com.example.farm_monitoring;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +51,10 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("확인","클릭");
+                    Intent intent = new Intent(v.getContext(), CommunityDetailActivity.class);
+//                    int position = getAdapterPosition();
+//                    CommunityData data = items.get(position);
+                    v.getContext().startActivity(intent);
                 }
             });
         }
