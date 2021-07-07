@@ -20,6 +20,7 @@
             android:paddingTop="20dp">
 
             <LinearLayout
+                android:id="@+id/category1"
                 android:layout_width="100dp"
                 android:layout_height="120dp"
                 android:orientation="vertical"
@@ -40,6 +41,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/category2"
                 android:layout_width="100dp"
                 android:layout_height="120dp"
                 android:orientation="vertical"
@@ -60,6 +62,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/category3"
                 android:layout_width="100dp"
                 android:layout_height="120dp"
                 android:orientation="vertical"
@@ -89,6 +92,7 @@
             android:paddingTop="20dp">
 
             <LinearLayout
+                android:id="@+id/category4"
                 android:layout_width="100dp"
                 android:layout_height="120dp"
                 android:orientation="vertical"
@@ -109,6 +113,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/category5"
                 android:layout_width="100dp"
                 android:layout_height="120dp"
                 android:orientation="vertical"
@@ -129,6 +134,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/category6"
                 android:layout_width="100dp"
                 android:layout_height="120dp"
                 android:orientation="vertical"

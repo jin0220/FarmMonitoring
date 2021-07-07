@@ -1,19 +1,22 @@
 package com.example.farm_monitoring;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link InformationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InformationFragment extends Fragment {
+public class InformationFragment extends HomeFragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +62,24 @@ public class InformationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_information, container, false);
+        View view = inflater.inflate(R.layout.fragment_information, container, false);
+
+        ((LinearLayout) view.findViewById(R.id.category1)).setOnClickListener(categoryListener);
+        ((LinearLayout) view.findViewById(R.id.category2)).setOnClickListener(categoryListener);
+        ((LinearLayout) view.findViewById(R.id.category3)).setOnClickListener(categoryListener);
+        ((LinearLayout) view.findViewById(R.id.category4)).setOnClickListener(categoryListener);
+        ((LinearLayout) view.findViewById(R.id.category5)).setOnClickListener(categoryListener);
+        ((LinearLayout) view.findViewById(R.id.category6)).setOnClickListener(categoryListener);
+
+        return view;
     }
+
+    private View.OnClickListener categoryListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int id = v.getId();
+//            Log.d("확인",getParentFragment() + " ");
+//            replaceFragment(InformationCategoryFragment.newInstance()); //뷰페이저 내의 프래그먼트에서 다른 프래그먼트로 넘기는 게 안됨
+        }
+    };
 }
