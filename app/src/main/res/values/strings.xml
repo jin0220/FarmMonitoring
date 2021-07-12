@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">우리집 앞마당</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="category1">
+        <item>---1차분류---</item>
+        <item>잎채소</item>
+        <item>열매채소</item>
+        <item>뿌리채소</item>
+        <item>식량작물</item>
+        <item>허브</item>
+    </string-array>
 </resources>

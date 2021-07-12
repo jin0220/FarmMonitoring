@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_edit"
+                android:drawableLeft="@drawable/ic_baseline_person"
+                android:drawablePadding="10dp"
+                android:hint="이름"
+                android:paddingLeft="20dp"
+                android:textSize="15dp" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_edit"
+                android:drawableLeft="@drawable/ic_baseline_person"
+                android:drawablePadding="10dp"
+                android:hint="아이디"
+                android:paddingLeft="20dp"
+                android:textSize="15dp" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_edit"
+                android:drawableLeft="@drawable/ic_baseline_lock"
+                android:drawablePadding="10dp"
+                android:hint="비밀번호"
+                android:paddingLeft="20dp"
+                android:textSize="15dp" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_edit"
+                android:drawableLeft="@drawable/ic_baseline_lock"
+                android:drawablePadding="10dp"
+                android:hint="비밀번호 확인"
+                android:paddingLeft="20dp"
+                android:textSize="15dp" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_edit"
+                android:drawableLeft="@drawable/ic_baseline_email"
+                android:drawablePadding="10dp"
+                android:hint="이메일"
+                android:paddingLeft="20dp"
+                android:textSize="15dp" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_edit"
+                android:drawableLeft="@drawable/ic_baseline_phone"
+                android:drawablePadding="10dp"
+                android:hint="전화번호"
+                android:paddingLeft="20dp"
+                android:textSize="15dp" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_edit"
+                android:drawableLeft="@drawable/ic_baseline_person"
+                android:drawablePadding="10dp"
+                android:hint="라즈베리파이 아이디"
+                android:paddingLeft="20dp"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="키우시려는 작물을 선택해주세요" />
+
+            <Spinner
+                android:id="@+id/category1"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_edit"
+                android:paddingLeft="20dp"/>
+
+            <Spinner
+                android:id="@+id/category2"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_edit"
+                android:paddingLeft="20dp"/>
+
+            <Spinner
+                android:id="@+id/category3"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_edit"
+                android:paddingLeft="20dp"/>
+
+            <CheckBox
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:text="이용약관에 동의하십니까?" />
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:background="@drawable/login_edit"
+                android:text="회원가입"
+                android:layout_marginBottom="30dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
