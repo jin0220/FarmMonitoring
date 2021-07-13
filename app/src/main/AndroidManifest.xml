@@ -9,18 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Farm_monitoring">
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".LoginActivity" />
-        <activity
-            android:name=".CommunityDetailActivity"
-            android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoadingActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".CommunityDetailActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
