@@ -89,8 +89,8 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"/>
 
-                <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/lineChart3"
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
                     android:layout_width="300dp"
                     android:layout_height="200dp"
                     android:layout_centerHorizontal="true"
