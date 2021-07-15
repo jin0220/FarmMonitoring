@@ -78,8 +78,8 @@ public class InformationFragment extends HomeFragment {
         @Override
         public void onClick(View v) {
             int id = v.getId();
-//            Log.d("확인",getParentFragment() + " ");
-//            replaceFragment(InformationCategoryFragment.newInstance()); //뷰페이저 내의 프래그먼트에서 다른 프래그먼트로 넘기는 게 안됨
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_fragment, new InformationCategoryFragment()).commit();
+
         }
     };
 }

@@ -45,8 +45,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.my:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fram_fragment, mypage).commit();
                         return true;
+                    default:
+                        return false;
                 }
-                return false;
             }
         });
     }
