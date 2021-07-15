@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoDetailFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical"
+                android:background="@color/colorPrimary"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="잎채소 상추 재배하기!"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="재배 꿀팁 이야기"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="1. 종자 준비하기\n 여름철 텃밭에서 상추 재배에 성공하기 위해서는 꽃대가 늦게 성장하고 더위에 견디는 성질이 강한 품종을 선택하는 것이 무엇보다 중요하다.
+우리에게 쌈 채소로 익숙한 청치마, 청축면, 적치마, 적축면 등 잎상추를 심으면 크게 무리가 없다.
+베란다 텃밭이라면 빛의 양이 적은 조건에서도 잘 자라는 ‘장수’, ‘춘풍 적축면’, ‘하청’ 등 3개 품종이
+재배에 알맞다. 이들 품종들은 빛의 양이 적어도 일정 수준의 생육량과 외관상 우수한 품질을 보인다."/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

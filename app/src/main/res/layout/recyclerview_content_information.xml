@@ -19,6 +19,7 @@
         android:layout_gravity="center_vertical">
 
         <TextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="상추"
@@ -27,6 +28,7 @@
             android:layout_marginBottom="10dp"/>
 
         <TextView
+            android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="잎채소 > 국화과 > 상추" />
