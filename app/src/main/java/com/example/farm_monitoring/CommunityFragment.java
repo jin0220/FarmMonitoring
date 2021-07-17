@@ -1,5 +1,6 @@
 package com.example.farm_monitoring;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CommunityFragment extends Fragment {
 
@@ -60,6 +63,15 @@ public class CommunityFragment extends Fragment {
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), new LinearLayoutManager(getContext()).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
+
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.floatingBtn);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CommunityWriteActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
