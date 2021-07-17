@@ -53,7 +53,9 @@ public class InformationCategoryFragment extends Fragment {
         adapter.setOnItemClickListener(new InformationAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fram_fragment, new InfoDetailFragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fram_fragment, new InfoDetailFragment())
+                        .addToBackStack(null).commit();
             }
         });
 

@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -19,6 +20,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 public class MainActivity extends AppCompatActivity {
 
     Fragment home, plant, mypage;
+    private long backBtnTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,4 +54,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        long curTime = System.currentTimeMillis();
+        long gapTime = curTime - backBtnTime;
+
+        if(0 <= gapTime && gapTime <= 2000) {
+            super.onBackPressed();
+        }
+        else {
+            backBtnTime = curTime;
+            Toast.makeText(this, "한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
