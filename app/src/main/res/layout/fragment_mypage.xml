@@ -26,8 +26,8 @@
 
                 <View
                     android:id="@+id/profile"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@color/colorPrimary"/>
 
                 <LinearLayout
@@ -39,12 +39,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="아이디"/>
+                        android:text="아이디"
+                        android:textSize="18dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="email@email.com"/>
+                        android:text="email@email.com"
+                        android:textSize="18dp"/>
 
                 </LinearLayout>
 
@@ -69,12 +71,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:text="현재 키우고 있는 작물: 상추"
-                    android:layout_marginTop="15dp"/>
+                    android:layout_marginTop="15dp"
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:text="상추와 함께한지 D+0"/>
+                    android:text="상추와 함께한지 D+0"
+                    android:textSize="18dp"/>
 
             </LinearLayout>
 
@@ -94,15 +98,21 @@
                     android:textColor="@color/black"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
                     android:text="자주 묻는 질문(FaQ)"
-                    android:layout_marginTop="15dp"/>
+                    android:layout_marginTop="15dp"
+                    android:textSize="18dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="1:1 질문하기(QnA)"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="1:1 질문하기(QnA)"
+                    android:textSize="18dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"/>
 
             </LinearLayout>
 
@@ -122,20 +132,31 @@
                     android:textColor="@color/black"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
+                    android:id="@+id/account"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
                     android:text="개인 정보 수정"
-                    android:layout_marginTop="15dp"/>
+                    android:layout_marginTop="15dp"
+                    android:textSize="18dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="로그아웃"/>
+                    android:id="@+id/logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="로그아웃"
+                    android:textSize="18dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="회원탈퇴"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="회원탈퇴"
+                    android:textSize="18dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"/>
 
             </LinearLayout>
 
