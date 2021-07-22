@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class InfoDetailFragment extends Fragment {
+public class InfoDetailFragment extends Fragment implements MainActivity.onBackPressedListener{
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -44,5 +44,11 @@ public class InfoDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_info_detail, container, false);
 
         return view;
+    }
+
+    @Override
+    public void onBackPressed() {
+        getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+        getActivity().getSupportFragmentManager().popBackStack();
     }
 }
