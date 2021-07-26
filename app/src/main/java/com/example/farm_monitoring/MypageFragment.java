@@ -48,6 +48,31 @@ public class MypageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mypage, container, false);
 
+        //공지사항
+        view.findViewById(R.id.notice).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), NoticeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //faq
+        view.findViewById(R.id.faq).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        //qna
+        view.findViewById(R.id.qna).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         //개인 정보 수정
         view.findViewById(R.id.account).setOnClickListener(new View.OnClickListener() {
             @Override

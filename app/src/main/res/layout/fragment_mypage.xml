@@ -98,15 +98,26 @@
                     android:textColor="@color/black"/>
 
                 <TextView
+                    android:id="@+id/notice"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:text="자주 묻는 질문(FaQ)"
+                    android:text="공지사항"
                     android:layout_marginTop="15dp"
                     android:textSize="18dp"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_vertical"/>
 
                 <TextView
+                    android:id="@+id/faq"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="자주 묻는 질문(FaQ)"
+                    android:textSize="18dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/qna"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:text="1:1 질문하기(QnA)"
