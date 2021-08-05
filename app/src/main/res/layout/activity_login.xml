@@ -25,6 +25,7 @@
         android:layout_marginBottom="100dp"/>
 
     <EditText
+        android:id="@+id/id"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/login_edit"
@@ -36,6 +37,7 @@
         android:textSize="15dp"/>
 
     <EditText
+        android:id="@+id/password"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/login_edit"
