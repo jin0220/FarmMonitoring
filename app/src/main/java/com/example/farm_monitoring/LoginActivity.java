@@ -56,9 +56,6 @@ public class LoginActivity extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                startActivity(intent);
-//                finish();
                 login();
             }
         });
@@ -67,41 +64,42 @@ public class LoginActivity extends AppCompatActivity {
     public void login(){
         String id = this.id.getText().toString();
         String password = this.password.getText().toString();
-        Log.d("json", "111 : " + id + " " + password);
 
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    JSONArray jsonArray = jsonObject.getJSONArray("users_table");
-//                    Log.d("json", "123 : " + jsonArray);
-//                    if(){
-                    jsonObject = jsonArray.getJSONObject(0);
-                        String user_id = jsonObject.getString("id");
-                        String user_pw = jsonObject.getString("password");
-                    Log.d("json", "222 : " + user_id + " " + user_pw);
+        if(id.isEmpty()){
+            Toast.makeText(this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show();
+        }else if(password.isEmpty()){
+            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+        }else {
+            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        boolean success = jsonObject.getBoolean("success");
+                        if (success) {
+                            String user_id = jsonObject.getString("id");
+                            String user_pw = jsonObject.getString("password");
 
-                        Toast.makeText( getApplicationContext(), String.format("%s님 환영합니다.", user_id), Toast.LENGTH_SHORT ).show();
+                            Toast.makeText(getApplicationContext(), String.format("%s님 환영합니다.", user_id), Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent( LoginActivity.this, MainActivity.class );
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
-                        intent.putExtra("id", user_id);
-                        intent.putExtra("password", user_pw);
+                            intent.putExtra("id", user_id);
+                            intent.putExtra("password", user_pw);
 
-                        startActivity(intent);
-//                    }
-//                    else{
-//                        Toast.makeText( getApplicationContext(), "로그인에 실패하셨습니다.", Toast.LENGTH_SHORT ).show();
-//                        return;
-//                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "등록되지 않은 아이디거나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        };
-        LoginRequest loginRequest = new LoginRequest(id, password, responseListener);
-        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-        queue.add(loginRequest);
+            };
+            LoginRequest loginRequest = new LoginRequest(id, password, responseListener);
+            RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+            queue.add(loginRequest);
+        }
     }
 }

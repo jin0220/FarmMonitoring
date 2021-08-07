@@ -8,11 +8,23 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class CommunityFragment extends Fragment {
 
@@ -21,6 +33,8 @@ public class CommunityFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+
+    CommunityAdapter adapter;
 
     public CommunityFragment() {
         // Required empty public constructor
@@ -52,14 +66,12 @@ public class CommunityFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        CommunityAdapter adapter = new CommunityAdapter();
+        adapter = new CommunityAdapter();
         recyclerView.setAdapter(adapter);
 
-        for(int i=0;i<10;i++) {
-            adapter.addData("상추 모종을 어디서 구입하는게 좋을 까요?", "상추를 키우고 싶은데 모종...");
-        }
+        dataLoad();
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), new LinearLayoutManager(getContext()).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
@@ -74,5 +86,36 @@ public class CommunityFragment extends Fragment {
         });
 
         return view;
+    }
+
+    public void dataLoad() {
+        String url = "http://easyfarm.dothome.co.kr/json/community_table.php";
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject jsonObject = response.getJSONObject(i);
+
+                        String title = jsonObject.getString("subject");
+                        String content = jsonObject.getString("memo");
+                        Log.d("json", title + content);
+                        adapter.addData("tkdtn", "tkdktn");
+                        adapter.addData(title, content);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), "데이터를 불러오는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        queue.add(jsonArrayRequest);
     }
 }

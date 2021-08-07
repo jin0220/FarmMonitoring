@@ -23,7 +23,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.recyclerview_content, parent,false);
+        View view = layoutInflater.inflate(R.layout.recyclerview_content_community, parent,false);
 
         return new ViewHolder(view);
     }
@@ -65,6 +65,8 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 
         item.setTitle(title);
         item.setContent(content);
+
+        Log.d("json", "adapter :" + title + content);
 
         items.add(item);
     }

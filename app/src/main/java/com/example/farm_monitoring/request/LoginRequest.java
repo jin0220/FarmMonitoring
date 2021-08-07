@@ -17,7 +17,7 @@ public class LoginRequest extends StringRequest {
         super(Method.POST, url, listener, null);
 
         map = new HashMap<>();
-        map.put("id",id);
+        map.put("id",id); //php파일로 보낼 파라미터
         map.put("password", password);
         Log.d("확인", id + " " + password);
     }
