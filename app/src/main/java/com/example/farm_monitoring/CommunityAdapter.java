@@ -44,7 +44,6 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             title = itemView.findViewById(R.id.title);
             content = itemView.findViewById(R.id.content);
 
@@ -66,8 +65,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
         item.setTitle(title);
         item.setContent(content);
 
-        Log.d("json", "adapter :" + title + content);
-
         items.add(item);
+        notifyDataSetChanged();
     }
 }

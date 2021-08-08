@@ -101,7 +101,6 @@ public class CommunityFragment extends Fragment {
                         String title = jsonObject.getString("subject");
                         String content = jsonObject.getString("memo");
                         Log.d("json", title + content);
-                        adapter.addData("tkdtn", "tkdktn");
                         adapter.addData(title, content);
                     }
                 } catch (JSONException e) {
