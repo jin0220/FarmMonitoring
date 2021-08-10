@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 public class InformationCategoryFragment extends Fragment implements MainActivity.onBackPressedListener {
 
@@ -47,6 +49,12 @@ public class InformationCategoryFragment extends Fragment implements MainActivit
         adapter.addData("부추");
         adapter.addData("잎들깨");
         adapter.addData("근대");
+
+
+        if(getArguments() != null) {
+            String name = getArguments().getString("name");
+            Toast.makeText(getContext(), name, Toast.LENGTH_SHORT).show();
+        }
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), new LinearLayoutManager(getContext()).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);

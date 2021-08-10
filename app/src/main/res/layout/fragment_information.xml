@@ -57,7 +57,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="잎채소"/>
+                    android:text="열매채소"/>
 
             </LinearLayout>
 
@@ -78,7 +78,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="잎채소"/>
+                    android:text="뿌리채소"/>
 
             </LinearLayout>
 
@@ -108,7 +108,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="잎채소"/>
+                    android:text="식량작물"/>
 
             </LinearLayout>
 
@@ -129,7 +129,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="잎채소"/>
+                    android:text="허브"/>
 
             </LinearLayout>
 
@@ -150,7 +150,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="잎채소"/>
+                    android:text="재배하기 팁"/>
 
             </LinearLayout>
 

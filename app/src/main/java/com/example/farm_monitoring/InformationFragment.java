@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class InformationFragment extends HomeFragment {
 
@@ -61,8 +63,37 @@ public class InformationFragment extends HomeFragment {
         @Override
         public void onClick(View v) {
             int id = v.getId();
+            String name = "";
+            switch(id){
+                case R.id.category1:
+                    name = "잎채소";
+                    break;
+                case R.id.category2:
+                    name = "열매채소";
+                    break;
+                case R.id.category3:
+                    name = "뿌리채소";
+                    break;
+                case R.id.category4:
+                    name = "식량작물";
+                    break;
+                case R.id.category5:
+                    name = "허브";
+                    break;
+                case R.id.category6:
+                    name = "재배하기 팁";
+                    break;
+            }
+
+            InformationCategoryFragment fragment = new InformationCategoryFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("name",name);
+
+            fragment.setArguments(bundle);
+
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fram_fragment, new InformationCategoryFragment())
+                    .replace(R.id.fram_fragment, fragment)
                     .addToBackStack(null).commit();
         }
     };
