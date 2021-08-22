@@ -1,8 +1,17 @@
 package com.example.farm_monitoring;
 
 public class CommunityData {
+    private String num;
     private String title;
     private String content;
+
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
 
     public String getTitle() {
         return title;

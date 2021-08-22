@@ -51,19 +51,22 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), CommunityDetailActivity.class);
-//                    int position = getAdapterPosition();
-//                    CommunityData data = items.get(position);
+                    int position = getAdapterPosition();
+                    CommunityData data = items.get(position);
+                    String num = data.getNum();
+                    intent.putExtra("page", num);
                     v.getContext().startActivity(intent);
                 }
             });
         }
     }
 
-    public void addData(String title, String content){
+    public void addData(String title, String content, String num){
         CommunityData item = new CommunityData();
 
         item.setTitle(title);
         item.setContent(content);
+        item.setNum(num);
 
         items.add(item);
         notifyDataSetChanged();

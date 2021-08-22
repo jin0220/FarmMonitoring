@@ -100,8 +100,9 @@ public class CommunityFragment extends Fragment {
 
                         String title = jsonObject.getString("subject");
                         String content = jsonObject.getString("memo");
-                        Log.d("json", title + content);
-                        adapter.addData(title, content);
+                        String num = jsonObject.getString("num");
+
+                        adapter.addData(title, content, num);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
