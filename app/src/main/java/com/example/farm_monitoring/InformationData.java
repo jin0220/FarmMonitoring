@@ -1,10 +1,18 @@
 package com.example.farm_monitoring;
 
 public class InformationData {
-//    String img;
+    String img;
     String plant1;
     String plant2;
     String Plant3;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public String getPlant1() {
         return plant1;

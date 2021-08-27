@@ -48,9 +48,9 @@
                     android:gravity="center">
 
                     <TextView
+                        android:id="@+id/Dday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="D+0"
                         android:textColor="@color/black"
                         android:textSize="20dp"/>
 
@@ -188,14 +188,28 @@
                 android:background="@drawable/plant_background">
 
                 <TextView
+                    android:id="@+id/plant"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="상추"/>
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2021.07.01 ~ " />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2021.07.01" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" ~ " />
+
+                </LinearLayout>
 
             </LinearLayout>
 

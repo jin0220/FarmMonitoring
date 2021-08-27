@@ -59,5 +59,6 @@ public class PlantStateAdapter extends RecyclerView.Adapter<PlantStateAdapter.Vi
         item.setEnd_date(end_date);
 
         items.add(item);
+        notifyDataSetChanged();
     }
 }
