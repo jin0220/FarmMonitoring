@@ -4,10 +4,12 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -30,6 +32,7 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     EditText id, password;
+    CheckBox check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,16 @@ public class LoginActivity extends AppCompatActivity {
 
         id = findViewById(R.id.id);
         password = findViewById(R.id.password);
+        check = findViewById(R.id.login_check);
+
+        if(!PreferenceManager.getString(getApplicationContext(), "id").isEmpty()) {
+            Toast.makeText(getApplicationContext(), String.format("%s님 환영합니다.",
+                    PreferenceManager.getString(getApplicationContext(), "id")), Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         Button sign_up = findViewById(R.id.sign_up);
         sign_up.setOnClickListener(new View.OnClickListener() {
@@ -82,12 +95,21 @@ public class LoginActivity extends AppCompatActivity {
 
                             Toast.makeText(getApplicationContext(), String.format("%s님 환영합니다.", user_id), Toast.LENGTH_SHORT).show();
 
+                            //자동 로그인 여부
+                            if(check.isChecked()) {
+                                loginSave(user_id, user_pw);
+                            }
+                            else{
+                                loginRemove();
+                            }
+
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
                             intent.putExtra("id", user_id);
                             intent.putExtra("password", user_pw);
 
                             startActivity(intent);
+                            finish();
                         } else {
                             Toast.makeText(getApplicationContext(), "등록되지 않은 아이디거나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show();
                             return;
@@ -101,5 +123,18 @@ public class LoginActivity extends AppCompatActivity {
             RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
             queue.add(loginRequest);
         }
+    }
+    //자동 로그인 - 데이터 저장
+    public void loginSave(String id, String pw){
+        PreferenceManager.setString(this, "id", id);
+        PreferenceManager.setString(this, "pw", pw);
+        PreferenceManager.setBoolean(this, "loginCheck", true);
+    }
+
+    //자동 로그인 - 데이터 삭제
+    public void loginRemove(){
+        PreferenceManager.removeKey(getApplicationContext(),"id");
+        PreferenceManager.removeKey(getApplicationContext(),"pw");
+        PreferenceManager.removeKey(getApplicationContext(),"loginCheck");
     }
 }

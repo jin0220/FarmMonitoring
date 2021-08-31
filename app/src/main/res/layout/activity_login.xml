@@ -44,7 +44,7 @@
             android:id="@+id/password"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/login_edit"
             android:drawableLeft="@drawable/ic_baseline_lock"
             android:drawablePadding="10dp"
@@ -54,6 +54,15 @@
             android:paddingLeft="20dp"
             android:singleLine="true"
             android:textSize="15dp" />
+
+        <CheckBox
+            android:id="@+id/login_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="자동 로그인"
+            android:layout_gravity="left"
+            android:layout_marginLeft="60dp"
+            android:layout_marginBottom="15dp"/>
 
         <Button
             android:id="@+id/login_btn"
