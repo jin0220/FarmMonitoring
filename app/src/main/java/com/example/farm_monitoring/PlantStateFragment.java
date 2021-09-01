@@ -82,7 +82,7 @@ public class PlantStateFragment extends Fragment {
         date = view.findViewById(R.id.date);
         Dday = view.findViewById(R.id.Dday);
 
-        dataLoad("20172804");
+        dataLoad(PreferenceManager.getString(getContext(),"id"));
 
         return view;
     }

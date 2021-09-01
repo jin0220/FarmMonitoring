@@ -111,7 +111,7 @@ public class InformationCategoryFragment extends Fragment implements MainActivit
                         String plant1 = jsonObject.getString("plant1");
                         String plant2 = jsonObject.getString("plant2");
                         String plant3 = jsonObject.getString("plant3");
-                        String image = jsonObject.getString("hash");
+//                        String image = jsonObject.getString("hash");
 
                         adapter.addData(plant1, plant2, plant3);
                     }

@@ -23,6 +23,7 @@
         android:paddingTop="30dp">
 
         <EditText
+            android:id="@+id/name"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
@@ -31,20 +32,21 @@
             android:drawablePadding="10dp"
             android:hint="이름"
             android:paddingLeft="20dp"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:singleLine="true"
+            android:maxLength="25"/>
 
-        <EditText
+        <TextView
+            android:id="@+id/id"
             android:layout_width="300dp"
             android:layout_height="50dp"
-
-            android:background="@drawable/login_edit"
+            android:background="@drawable/account_id_background"
             android:drawableLeft="@drawable/ic_baseline_person"
             android:drawablePadding="10dp"
-            android:hint="아이디"
+            android:text="아이디"
             android:paddingLeft="20dp"
             android:textSize="15dp"
-            android:clickable="false"
-            android:focusable="false"/>
+            android:gravity="center_vertical"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,7 +66,9 @@
             android:drawablePadding="10dp"
             android:hint="비밀번호"
             android:paddingLeft="20dp"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:singleLine="true"
+            android:maxLength="25"/>
 
         <EditText
             android:layout_width="300dp"
@@ -75,9 +79,12 @@
             android:drawablePadding="10dp"
             android:hint="비밀번호 확인"
             android:paddingLeft="20dp"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:singleLine="true"
+            android:maxLength="25"/>
 
         <EditText
+            android:id="@+id/email"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
@@ -86,9 +93,12 @@
             android:drawablePadding="10dp"
             android:hint="이메일"
             android:paddingLeft="20dp"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:singleLine="true"
+            android:maxLength="25"/>
 
         <EditText
+            android:id="@+id/phone"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
@@ -97,9 +107,12 @@
             android:drawablePadding="10dp"
             android:hint="전화번호"
             android:paddingLeft="20dp"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:singleLine="true"
+            android:maxLength="25"/>
 
         <EditText
+            android:id="@+id/farm_id"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
@@ -108,7 +121,9 @@
             android:drawablePadding="10dp"
             android:hint="라즈베리파이 아이디"
             android:paddingLeft="20dp"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:singleLine="true"
+            android:maxLength="25"/>
 
     </LinearLayout>
 

@@ -37,15 +37,17 @@
                     android:layout_marginLeft="15dp">
 
                     <TextView
+                        android:id="@+id/id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="아이디"
+                        android:text=""
                         android:textSize="18dp"/>
 
                     <TextView
+                        android:id="@+id/email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="email@email.com"
+                        android:text=""
                         android:textSize="18dp"/>
 
                 </LinearLayout>
@@ -67,18 +69,47 @@
                     android:textSize="18dp"
                     android:textColor="@color/black"/>
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="현재 키우고 있는 작물: 상추"
-                    android:layout_marginTop="15dp"
-                    android:textSize="18dp"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <TextView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:text="현재 키우고 있는 작물: "
+                        android:layout_marginTop="15dp"
+                        android:textSize="18dp"/>
+
+                    <TextView
+                        android:id="@+id/userPlant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:text=""
+                        android:layout_marginTop="15dp"
+                        android:textSize="18dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="상추와 함께한지 D+0"
-                    android:textSize="18dp"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:text="상추와 함께한지 D+"
+                        android:textSize="18dp"/>
+
+                    <TextView
+                        android:id="@+id/userPlant_Dday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:text="0"
+                        android:textSize="18dp"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
