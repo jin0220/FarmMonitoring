@@ -10,6 +10,7 @@
     android:padding="15dp">
 
     <TextView
+        android:id="@+id/user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="회원이름님의 계정"
@@ -58,6 +59,7 @@
             android:textColor="#f00"/>
 
         <EditText
+            android:id="@+id/pw"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
@@ -65,12 +67,14 @@
             android:drawableLeft="@drawable/ic_baseline_lock"
             android:drawablePadding="10dp"
             android:hint="비밀번호"
+            android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:textSize="15dp"
             android:singleLine="true"
             android:maxLength="25"/>
 
         <EditText
+            android:id="@+id/pwc"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
@@ -78,6 +82,7 @@
             android:drawableLeft="@drawable/ic_baseline_lock"
             android:drawablePadding="10dp"
             android:hint="비밀번호 확인"
+            android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:textSize="15dp"
             android:singleLine="true"
