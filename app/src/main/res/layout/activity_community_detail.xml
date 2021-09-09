@@ -92,8 +92,9 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:background="@color/background">
-        
+
         <EditText
+            android:id="@+id/comment_write"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:hint="댓글을 입력하세요"
@@ -103,10 +104,11 @@
             android:background="@drawable/edit_background"/>
 
         <Button
+            android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"/>
-        
+
     </LinearLayout>
 
 </RelativeLayout>

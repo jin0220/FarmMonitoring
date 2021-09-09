@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +23,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.farm_monitoring.request.AccountRequest;
+import com.example.farm_monitoring.request.CommentRequest;
 import com.example.farm_monitoring.request.CommunityRequest;
 import com.example.farm_monitoring.request.SignUpRequest;
 
@@ -38,11 +43,13 @@ import java.util.List;
 public class CommunityDetailActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     CommunityCommentAdapter adapter;
-    List<CommunityCommentData> items;
+    List<CommunityCommentData> items = new ArrayList<>();
 
     TextView userId, title, content, date;
     ImageView image;
     Bitmap bitmap;
+    EditText comment_write;
+    Button submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +64,21 @@ public class CommunityDetailActivity extends AppCompatActivity {
         date = findViewById(R.id.date);
         image = findViewById(R.id.image);
 
+        comment_write = findViewById(R.id.comment_write);
+        submit = findViewById(R.id.submit);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                commentInsert(page);
+            }
+        });
+
         ItemAdd(page);
         commentAdd(page);
 
         recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter = new CommunityCommentAdapter(items);
         recyclerView.setAdapter(adapter);
@@ -151,7 +168,7 @@ public class CommunityDetailActivity extends AppCompatActivity {
 
     public void commentAdd(String page){
         String url = "http://easyfarm.dothome.co.kr/json/comment_table.php?num="+page;
-        items = new ArrayList<>();
+//        items = new ArrayList<>();
 //        items.add(new CommunityCommentData("아이디1", "저는 그냥 오프라인에서 사요! 가격은 모르겠지만 상태를 보고 살 수 있어서 좋더라구요^^", 0));
 //        items.add(new CommunityCommentData("글쓴이", "아 오프라인으로 사면 그게 장점이 겠군요~~ 정보 감사해요 ㅎㅎ", 1));
 //        items.add(new CommunityCommentData("아이디2", "가격은 11번가가 더 저렴한 것 같아요!", 0));
@@ -182,5 +199,38 @@ public class CommunityDetailActivity extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(jsonArrayRequest);
+    }
+
+    public void commentInsert(String page) {
+        String comment = comment_write.getText().toString();
+        String id = PreferenceManager.getString(this, "id");
+
+
+        if (comment.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "내용을 입력해주세요.", Toast.LENGTH_SHORT).show();
+        } else {
+            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        boolean success = jsonObject.getBoolean("success");
+                        if (success) {
+                            items.add(new CommunityCommentData(id, comment, 0));
+                            adapter.notifyDataSetChanged();
+                            comment_write.setText("");
+                        } else {
+                            Toast.makeText(getApplicationContext(), "입력에 실패 하셨습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            CommentRequest commentRequest = new CommentRequest(id, page, comment, responseListener);
+            RequestQueue queue = Volley.newRequestQueue(CommunityDetailActivity.this);
+            queue.add(commentRequest);
+        }
     }
 }
