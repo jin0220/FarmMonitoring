@@ -3,6 +3,8 @@ package com.example.farm_monitoring;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.util.Log;
@@ -23,6 +25,7 @@ public class HomeFragment extends Fragment {
     ViewPager2 viewPager2;
     TabLayout tabLayout;
     PagerAdapter pagerAdapter;
+
 
     private String[] titles = new String[]{"모니터링", "커뮤니티", "찾아보기"};
 
@@ -52,22 +55,32 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        //뷰페이저
-        Fragment monitoring = new MonitoringFragment().newInstance("1","1-1");
-        Fragment community = new CommunityFragment().newInstance("2","2-1");
-        Fragment information = new InformationFragment().newInstance("3","3-1");
 
         viewPager2 = view.findViewById(R.id.viewPager);
         tabLayout = view.findViewById(R.id.tabs);
 
         pagerAdapter = new PagerAdapter(this);
-        pagerAdapter.addFrag(monitoring);
-        pagerAdapter.addFrag(community);
-        pagerAdapter.addFrag(information);
 
         viewPager2.setAdapter(pagerAdapter);
 
         new TabLayoutMediator(tabLayout,viewPager2,(tab, position) -> tab.setText(titles[position])).attach();
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager2.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         return view;
     }

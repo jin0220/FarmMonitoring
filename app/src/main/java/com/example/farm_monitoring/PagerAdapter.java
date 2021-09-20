@@ -25,11 +25,20 @@ public class PagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return fragments.get(position); //프래그먼트 교체
+        switch (position){
+            case 0:
+                return new MonitoringFragment();
+            case 1:
+                return new CommunityFragment();
+            case 2:
+                return new InformationFragment();
+            default:
+                return new MonitoringFragment();
+        }
     }
 
     @Override
     public int getItemCount() { //페이지 개수
-        return fragments.size();
+        return 3;
     }
 }
