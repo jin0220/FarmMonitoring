@@ -1,6 +1,8 @@
 package com.example.farm_monitoring;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,38 +36,20 @@ import java.util.Date;
 
 public class PlantStateFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
     PlantStateAdapter adapter;
 
     TextView plant, date, Dday;
 
+    ImageView add;
+
     long D_day = 0;
 
-    public PlantStateFragment() {
-        // Required empty public constructor
-    }
-
-    public static PlantStateFragment newInstance(String param1, String param2) {
-        PlantStateFragment fragment = new PlantStateFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    boolean check = false; //현재 키우고 있는 작물이 있는지 확인
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -83,6 +69,39 @@ public class PlantStateFragment extends Fragment {
         Dday = view.findViewById(R.id.Dday);
 
         dataLoad(PreferenceManager.getString(getContext(),"id"));
+
+        add = view.findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(check){ //현재 키우고 있는 작물이 있을 경우
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+                    builder.setTitle("현재 키우고 있는 작물이 있습니다.")
+                            .setMessage("다 자라서 수확을 하셨다면 아래 수확 완료 버튼을 눌러주세요!");
+
+                    builder.setPositiveButton("수확하기", new DialogInterface.OnClickListener(){
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(getContext(), "수확완료", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    builder.setNegativeButton("닫기", new DialogInterface.OnClickListener(){
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                }
+                else{
+
+                }
+            }
+        });
 
         return view;
     }
@@ -114,6 +133,8 @@ public class PlantStateFragment extends Fragment {
 
                             D_day = (current - timestamp) / (24*60*60*1000);
                             Dday.setText("D+" + D_day);
+
+                            check = true;
                         }else {
                             adapter.addData(plant3, start, end);
                         }

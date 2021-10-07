@@ -166,18 +166,31 @@
             android:elevation="5dp"
             android:padding="15dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나의 작물 재배 관리"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="나의 작물 재배 관리"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/add"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/ic_baseline_add_24"/>
+
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="현재 키우고 있는 작물"
-                android:layout_marginTop="20dp"/>
+                android:text="현재 키우고 있는 작물" />
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         home = new HomeFragment().newInstance("home","home");
-        plant = new PlantStateFragment().newInstance("plant","plant");
+        plant = new PlantStateFragment();
         mypage = new MypageFragment().newInstance("mypage", "mypage");
         getSupportFragmentManager().beginTransaction().add(R.id.fram_fragment, home).commit();
 

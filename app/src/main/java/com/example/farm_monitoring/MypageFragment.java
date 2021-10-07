@@ -2,6 +2,7 @@ package com.example.farm_monitoring;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -119,23 +120,63 @@ public class MypageFragment extends Fragment {
         view.findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PreferenceManager.removeKey(getContext(),"id");
-                PreferenceManager.removeKey(getContext(),"pw");
-                PreferenceManager.removeKey(getContext(),"loginCheck");
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-                Intent intent = new Intent(getContext(), LoginActivity.class);
-                startActivity(intent);
-                getActivity().finish();
+                builder.setTitle("로그아웃")
+                        .setMessage("로그아웃하시겠습니까?");
+
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        PreferenceManager.removeKey(getContext(),"id");
+                        PreferenceManager.removeKey(getContext(),"pw");
+                        PreferenceManager.removeKey(getContext(),"loginCheck");
+
+                        Intent intent = new Intent(getContext(), LoginActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
 
         //회원탈퇴
-//        view.findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                AlertDialog dialog = new AlertDialog.Builder(); //프래그먼트에서 다이얼로그를 사용하려면 커스텀 다이얼로그해야 사용가능
-//            }
-//        });
+        view.findViewById(R.id.withdrawal).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+                builder.setTitle("회원탈퇴")
+                        .setMessage("회원을 탈퇴하시겠습니까?");
+
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
 
         return view;
     }

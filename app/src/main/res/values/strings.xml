@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">우리집 앞마당</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--1차분류-->
     <string-array name="category1">
         <item>---1차분류---</item>
         <item>잎채소</item>
@@ -9,4 +10,139 @@
         <item>식량작물</item>
         <item>허브</item>
     </string-array>
+
+    <!--2차분류-->
+    <string-array name = "category2_1">
+        <item>---2차분류---</item>
+        <item>백합과</item>
+        <item>국화과</item>
+        <item>꿀풀과</item>
+        <item>명아주과</item>
+        <item>배추과</item>
+    </string-array>
+    <string-array name = "category2_2">
+        <item>---2차분류---</item>
+        <item>가지과</item>
+        <item>고추과</item>
+        <item>박과</item>
+    </string-array>
+    <string-array name = "category2_3">
+        <item>---2차분류---</item>
+        <item>배추과</item>
+        <item>미나리과</item>
+        <item>백합과</item>
+        <item>생강과</item>
+    </string-array>
+    <string-array name = "category2_4">
+        <item>---2차분류---</item>
+        <item>가지과</item>
+        <item>메꽃과</item>
+        <item>콩과</item>
+        <item>화본과</item>
+    </string-array>
+    <string-array name = "category2_5">
+        <item>---2차분류---</item>
+        <item>꿀풀과</item>
+        <item>백합과</item>
+        <item>국화과</item>
+    </string-array>
+
+    <!--3차분류-->
+    <string-array name = "category3_2_1_1">
+        <item>---3차분류---</item>
+        <item>부추</item>
+    </string-array>
+    <string-array name = "category3_2_1_2">
+        <item>---3차분류---</item>
+        <item>상추</item>
+        <item>쑥갓</item>
+        <item>엔다이브</item>
+    </string-array>
+    <string-array name = "category3_2_1_3">
+        <item>---3차분류---</item>
+        <item>잎들깨</item>
+    </string-array>
+    <string-array name = "category3_2_1_4">
+        <item>---3차분류---</item>
+        <item>근대</item>
+        <item>적근대</item>
+    </string-array>
+    <string-array name = "category3_2_1_5">
+        <item>---3차분류---</item>
+        <item>청경채</item>
+        <item>다채</item>
+    </string-array>
+
+    <string-array name = "category3_2_2_1">
+        <item>---3차분류---</item>
+        <item>가지</item>
+        <item>수세미오이</item>
+        <item>오이</item>
+        <item>토마토</item>
+    </string-array>
+    <string-array name = "category3_2_2_2">
+        <item>---3차분류---</item>
+        <item>고추</item>
+    </string-array>
+    <string-array name = "category3_2_2_3">
+        <item>---3차분류---</item>
+        <item>호박</item>
+    </string-array>
+
+    <string-array name = "category3_2_3_1">
+        <item>---3차분류---</item>
+        <item>적환무</item>
+    </string-array>
+    <string-array name = "category3_2_3_2">
+        <item>---3차분류---</item>
+        <item>당근</item>
+    </string-array>
+    <string-array name = "category3_2_3_3">
+        <item>---3차분류---</item>
+        <item>마늘</item>
+    </string-array>
+    <string-array name = "category3_2_3_4">
+        <item>---3차분류---</item>
+        <item>생강</item>
+    </string-array>
+
+    <string-array name = "category3_2_4_1">
+        <item>---3차분류---</item>
+        <item>감자</item>
+    </string-array>
+    <string-array name = "category3_2_4_2">
+        <item>---3차분류---</item>
+        <item>고구마</item>
+    </string-array>
+    <string-array name = "category3_2_4_3">
+        <item>---3차분류---</item>
+        <item>땅콩</item>
+        <item>콩(대두)</item>
+        <item>두류(강낭콩, 연두콩)</item>
+    </string-array>
+    <string-array name = "category3_2_4_4">
+        <item>---3차분류---</item>
+        <item>옥수수</item>
+        <item>보리</item>
+        <item>벼</item>
+    </string-array>
+
+    <string-array name = "category3_2_5_1">
+        <item>---3차분류---</item>
+        <item>타임</item>
+        <item>라벤더</item>
+        <item>레몬밤</item>
+        <item>로즈마리</item>
+        <item>민트</item>
+        <item>오레가노</item>
+    </string-array>
+    <string-array name = "category3_2_5_2">
+        <item>---3차분류---</item>
+        <item>차이브</item>
+    </string-array>
+    <string-array name = "category3_2_5_3">
+        <item>---3차분류---</item>
+        <item>캐모마일</item>
+    </string-array>
+
 </resources>

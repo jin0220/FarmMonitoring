@@ -56,5 +56,6 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
         item.setContent(content);
 
         items.add(item);
+        notifyDataSetChanged();
     }
 }

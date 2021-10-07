@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,6 +25,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     TextView id, name, password, password_c, email, phone, farm_id;
     Spinner category1, category2, category3;
+    ArrayAdapter<CharSequence> adapter_category1, adapter_category2, adapter_category3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +34,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("회원가입");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        Spinner spinner = findViewById(R.id.category1);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.category1, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
 
         id = findViewById(R.id.userId);
         name = findViewById(R.id.username);
@@ -49,10 +47,137 @@ public class SignUpActivity extends AppCompatActivity {
         category2 = findViewById(R.id.category2);
         category3 = findViewById(R.id.category3);
 
+        spinner();
+
         findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signUp();
+            }
+        });
+    }
+
+    public void spinner(){
+        adapter_category1 = ArrayAdapter.createFromResource(this, R.array.category1, android.R.layout.simple_spinner_item);
+        adapter_category1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        category1.setAdapter(adapter_category1);
+        category1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position > 0){
+                    int p = 0;
+                    switch (position){
+                        case 1:
+                            p = R.array.category2_1; break;
+                        case 2:
+                            p = R.array.category2_2; break;
+                        case 3:
+                            p = R.array.category2_3; break;
+                        case 4:
+                            p = R.array.category2_4; break;
+                        case 5:
+                            p = R.array.category2_5; break;
+                    }
+                    adapter_category2 = ArrayAdapter.createFromResource(getApplicationContext(),
+                            p, android.R.layout.simple_spinner_item);
+                    adapter_category2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    category2.setAdapter(adapter_category2);
+
+                    int finalP = p;
+                    category2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            if(position > 0) {
+                                int p2 = 0;
+                                if (finalP == R.array.category2_1) {
+                                    switch (position) {
+                                        case 1:
+                                            p2 = R.array.category3_2_1_1;
+                                            break;
+                                        case 2:
+                                            p2 = R.array.category3_2_1_2;
+                                            break;
+                                        case 3:
+                                            p2 = R.array.category3_2_1_3;
+                                            break;
+                                        case 4:
+                                            p2 = R.array.category3_2_1_4;
+                                            break;
+                                        case 5:
+                                            p2 = R.array.category3_2_1_5;
+                                            break;
+                                    }
+                                } else if (finalP == R.array.category2_2) {
+                                    switch (position) {
+                                        case 1:
+                                            p2 = R.array.category3_2_2_1;
+                                            break;
+                                        case 2:
+                                            p2 = R.array.category3_2_2_2;
+                                            break;
+                                        case 3:
+                                            p2 = R.array.category3_2_2_3;
+                                            break;
+                                    }
+                                } else if (finalP == R.array.category2_3) {
+                                    switch (position) {
+                                        case 1:
+                                            p2 = R.array.category3_2_3_1;
+                                            break;
+                                        case 2:
+                                            p2 = R.array.category3_2_3_2;
+                                            break;
+                                        case 3:
+                                            p2 = R.array.category3_2_3_3;
+                                            break;
+                                        case 4:
+                                            p2 = R.array.category3_2_3_4;
+                                            break;
+                                    }
+                                } else if (finalP == R.array.category2_4) {
+                                    switch (position) {
+                                        case 1:
+                                            p2 = R.array.category3_2_4_1;
+                                            break;
+                                        case 2:
+                                            p2 = R.array.category3_2_4_2;
+                                            break;
+                                        case 3:
+                                            p2 = R.array.category3_2_4_3;
+                                            break;
+                                        case 4:
+                                            p2 = R.array.category3_2_4_4;
+                                            break;
+                                    }
+                                } else if (finalP == R.array.category2_5) {
+                                    switch (position) {
+                                        case 1:
+                                            p2 = R.array.category3_2_5_1;
+                                            break;
+                                        case 2:
+                                            p2 = R.array.category3_2_5_2;
+                                            break;
+                                        case 3:
+                                            p2 = R.array.category3_2_5_3;
+                                            break;
+                                    }
+                                }
+                                adapter_category3 = ArrayAdapter.createFromResource(getApplicationContext(),
+                                        p2, android.R.layout.simple_spinner_item);
+                                adapter_category3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                category3.setAdapter(adapter_category3);
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
             }
         });
     }
