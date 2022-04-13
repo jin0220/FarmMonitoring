@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Farm_monitoring">
-        <activity android:name=".NoticeActivity"></activity>
-        <activity android:name=".AccountActivity" />
-        <activity android:name=".CommunityWriteActivity" />
+        <activity android:name=".ui.mypage.NoticeActivity"></activity>
+        <activity android:name=".ui.mypage.AccountActivity" />
+        <activity android:name=".ui.home.community.CommunityWriteActivity" />
         <activity
-            android:name=".LoadingActivity"
+            android:name=".ui.LoadingActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,13 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".LoginActivity"
+        <activity android:name=".ui.SignUpActivity" />
+        <activity android:name=".ui.LoginActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"/> <!--키보드가 보여질 때 화면 스크롤할 수 있도록 함.-->
         <activity
-            android:name=".CommunityDetailActivity"
+            android:name=".ui.home.community.CommunityDetailActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.MainActivity" />
     </application>
 
 </manifest>
